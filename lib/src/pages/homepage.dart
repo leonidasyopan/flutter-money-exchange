@@ -33,7 +33,7 @@ class Homepage extends StatelessWidget {
 
 Widget mainMenu() {
   return Container(
-    height: 236.0,
+    height: 270.0,
     decoration: BoxDecoration(
         gradient: LinearGradient(
       colors: [Color(0xFF2848FF), Color(0xFF3969FC)],
@@ -47,28 +47,37 @@ Widget mainMenu() {
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              '\$27,812.',
-              style: TextStyle(
-                  fontSize: 35.0,
-                  color: Color(0xFFFFFFFF),
-                  fontWeight: FontWeight.w500),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 6.0),
-              child: Text(
-                '34',
+            RichText(
+              text: TextSpan(
+                text: '\$ ',
                 style: TextStyle(
-                    fontSize: 20.0,
-                    color: Color(0xFFFFFFFF),
-                    fontWeight: FontWeight.w500),
+                  fontSize: 25.0,
+                  color: Color(0xFFFFFFFF),
+                  fontWeight: FontWeight.w500
+                  ),
+                children: [
+                  TextSpan(
+                text: '27,812.',
+                style: TextStyle(
+                  fontSize: 40.0,
+                  color: Color(0xFFFFFFFF),
+                  fontWeight: FontWeight.w500
+                  )
+                  ),
+                  TextSpan(
+                    text: '34',
+                    style: TextStyle(
+                      fontSize: 25.0,
+                      color: Color(0xFFFFFFFF),
+                      fontWeight: FontWeight.w500
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
         ),
-        SizedBox(
-          height: 20.0,
-        ),
+        SizedBox(height: 20.0,),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

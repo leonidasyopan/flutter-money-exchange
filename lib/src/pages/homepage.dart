@@ -83,8 +83,8 @@ Widget mainMenu() {
           children: [
             menuOption(Icons.arrow_downward, 'Receive', 45),
             menuOption(Icons.arrow_upward, 'Send', 45),
-            menuOption(Icons.compare_arrows, 'Exchange', 0),
-            menuOption(Icons.attach_money, 'Cash out', 0)
+            menuOption(Icons.import_export, 'Exchange', 90),
+            menuOption(Icons.local_atm, 'Cash out', 0)
           ],
         ),
         SizedBox(

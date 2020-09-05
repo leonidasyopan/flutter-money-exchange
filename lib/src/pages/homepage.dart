@@ -144,12 +144,67 @@ Widget wallets() {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('My wallets'),
-            Text('Empty walltes'),
+            SizedBox(
+            height: 60.0,
+              child: FlatButton(
+                onPressed: null,
+                child: Text('My wallets')
+              ),
+            ),
+            SizedBox(
+            height: 60.0,
+              child: FlatButton(
+                onPressed: null,
+                child: Text('Empty wallets')
+              ),
+            ),
           ],
-        )
-
+        ),
+        Divider(
+          color: Colors.grey,
+          height: 0.0,
+        ),
+        Row(
+          children: [
+            CircleAvatar(
+              radius: 30,
+              child: Padding(
+                padding: EdgeInsets.all(5.0),
+                  child: Text(
+                  'BTC',
+                  style: TextStyle(
+                    color: Color(0xFFFFFFFF)
+                  ),
+                ),
+              ),
+              backgroundColor: Color(0xFFFA913D),
+            ),
+            Column(
+              children: [
+                Text(
+                  '\$13,894.12',
+                  style: TextStyle(
+                    color: Color(0xFF000000),
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
+                Text(
+                  '0.028195',
+                  style: TextStyle(
+                    color: Color(0xFF000000),
+                  ),
+                ),
+              ],
+            ),
+            Image.asset('assets/graphs/graph-one.png'),
+          ],
+        ),
+        Divider(
+          color: Colors.grey,
+          height: 0.0,
+        ),
       ],
     )
   );

@@ -138,11 +138,11 @@ Widget wallets() {
       'imgUrl': 'assets/graphs/graph-one.png'
     },
     {
-      'iconBGcolor': '6080DD',
+      'iconBGcolor': Color(0xFF6080DD),
       'icon': 'ETH',
       'value': '\$11,489.21',
       'rate': '2.259',
-      'imgUrl': 'assets/graphs/graph-one.png'
+      'imgUrl': 'assets/graphs/graph-two.png'
     },
   ];
 
@@ -170,58 +170,69 @@ Widget wallets() {
               ),
             ],
           ),
+          Divider(
+            color: Colors.grey,
+            height: 0.0,
+          ),
           Column(
-            children: [
-              walletItemsList.map((item) => walletItems(item));
-            ],)
+            children: walletItemsList.map((item) => walletItems(item)).toList()
+            )
         ],
       ));
 }
 
 Widget walletItems(Map<String, dynamic> item) {
-  return Padding(
-    padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 30.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        CircleAvatar(
-          radius: 30,
-          child: Padding(
-            padding: EdgeInsets.all(5.0),
-            child: Text(
-              item['icon'],
-              style: TextStyle(color: Color(0xFFFFFFFF)),
-            ),
-          ),
-          backgroundColor: item['iconBGcolor'],
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+  return Column(
+    children: [
+      Padding(
+        padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 30.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              item['value'],
-              style: TextStyle(
-                  color: Color(0xFF000000),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 19.0),
-            ),
-            Text(
-              item['rate'],
-              style: TextStyle(
-                color: Color(0xFF000000),
-                fontSize: 18.0,
+            CircleAvatar(
+              radius: 30,
+              child: Padding(
+                padding: EdgeInsets.all(5.0),
+                child: Text(
+                  item['icon'],
+                  style: TextStyle(color: Color(0xFFFFFFFF)),
+                ),
               ),
+              backgroundColor: item['iconBGcolor'],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  item['value'],
+                  style: TextStyle(
+                      color: Color(0xFF000000),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 19.0),
+                ),
+                Text(
+                  item['rate'],
+                  style: TextStyle(
+                    color: Color(0xFF000000),
+                    fontSize: 18.0,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              width: 120.0,
+            ),
+            Image(
+              width: 70.0,
+              image: AssetImage(item['imgUrl']),
             ),
           ],
         ),
-        SizedBox(
-          width: 120.0,
-        ),
-        Image(
-          width: 70.0,
-          image: AssetImage(item['imgUrl']),
-        ),
-      ],
-    ),
+      ),
+      Divider(
+        color: Colors.grey,
+        height: 0.0,
+      ),
+    ],
   );
 }

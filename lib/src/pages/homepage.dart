@@ -17,12 +17,11 @@ class Homepage extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home), title: Text('Home')),
+              icon: Icon(Icons.history), title: Text('History')),
           BottomNavigationBarItem(
-            icon: Icon(Icons.history), title: Text('History')),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person), title: Text('Profile')),
+              icon: Icon(Icons.person), title: Text('Profile')),
         ],
         fixedColor: Color(0xFF3153F5),
         onTap: null,
@@ -51,33 +50,31 @@ Widget mainMenu() {
               text: TextSpan(
                 text: '\$ ',
                 style: TextStyle(
-                  fontSize: 25.0,
-                  color: Color(0xFFFFFFFF),
-                  fontWeight: FontWeight.w500
-                  ),
+                    fontSize: 25.0,
+                    color: Color(0xFFFFFFFF),
+                    fontWeight: FontWeight.w500),
                 children: [
                   TextSpan(
-                text: '27,812.',
-                style: TextStyle(
-                  fontSize: 40.0,
-                  color: Color(0xFFFFFFFF),
-                  fontWeight: FontWeight.w500
-                  )
-                  ),
+                      text: '27,812.',
+                      style: TextStyle(
+                          fontSize: 40.0,
+                          color: Color(0xFFFFFFFF),
+                          fontWeight: FontWeight.w500)),
                   TextSpan(
                     text: '34',
                     style: TextStyle(
-                      fontSize: 25.0,
-                      color: Color(0xFFFFFFFF),
-                      fontWeight: FontWeight.w500
-                    ),
+                        fontSize: 25.0,
+                        color: Color(0xFFFFFFFF),
+                        fontWeight: FontWeight.w500),
                   ),
                 ],
               ),
             ),
           ],
         ),
-        SizedBox(height: 20.0,),
+        SizedBox(
+          height: 20.0,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -132,80 +129,99 @@ Widget menuOption(IconData icon, String title, int angle) {
 }
 
 Widget wallets() {
+  List<Map<String, dynamic>> walletItemsList = [
+    {
+      'iconBGcolor': Color(0xFFFA913D),
+      'icon': 'BTC',
+      'value': '\$13,894.12',
+      'rate': '0.028195',
+      'imgUrl': 'assets/graphs/graph-one.png'
+    },
+    {
+      'iconBGcolor': '6080DD',
+      'icon': 'ETH',
+      'value': '\$11,489.21',
+      'rate': '2.259',
+      'imgUrl': 'assets/graphs/graph-one.png'
+    },
+  ];
+
   return Container(
-    height: 200.0,
-    decoration: BoxDecoration(
-        gradient: LinearGradient(
-      colors: [Color(0xFFFFFFFF), Color(0xFFFFFFFF)],
-      stops: [0.0, 0.7],
-    )),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        colors: [Color(0xFFFFFFFF), Color(0xFFFFFFFF)],
+        stops: [0.0, 0.7],
+      )),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 60.0,
+                child: FlatButton(onPressed: null, child: Text('My wallets')),
+              ),
+              SizedBox(
+                height: 60.0,
+                child:
+                    FlatButton(onPressed: null, child: Text('Empty wallets')),
+              ),
+            ],
+          ),
+          Column(
+            children: [
+              walletItemsList.map((item) => walletItems(item));
+            ],)
+        ],
+      ));
+}
+
+Widget walletItems(Map<String, dynamic> item) {
+  return Padding(
+    padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 30.0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-            height: 60.0,
-              child: FlatButton(
-                onPressed: null,
-                child: Text('My wallets')
-              ),
+        CircleAvatar(
+          radius: 30,
+          child: Padding(
+            padding: EdgeInsets.all(5.0),
+            child: Text(
+              item['icon'],
+              style: TextStyle(color: Color(0xFFFFFFFF)),
             ),
-            SizedBox(
-            height: 60.0,
-              child: FlatButton(
-                onPressed: null,
-                child: Text('Empty wallets')
+          ),
+          backgroundColor: item['iconBGcolor'],
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              item['value'],
+              style: TextStyle(
+                  color: Color(0xFF000000),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 19.0),
+            ),
+            Text(
+              item['rate'],
+              style: TextStyle(
+                color: Color(0xFF000000),
+                fontSize: 18.0,
               ),
             ),
           ],
         ),
-        Divider(
-          color: Colors.grey,
-          height: 0.0,
+        SizedBox(
+          width: 120.0,
         ),
-        Row(
-          children: [
-            CircleAvatar(
-              radius: 30,
-              child: Padding(
-                padding: EdgeInsets.all(5.0),
-                  child: Text(
-                  'BTC',
-                  style: TextStyle(
-                    color: Color(0xFFFFFFFF)
-                  ),
-                ),
-              ),
-              backgroundColor: Color(0xFFFA913D),
-            ),
-            Column(
-              children: [
-                Text(
-                  '\$13,894.12',
-                  style: TextStyle(
-                    color: Color(0xFF000000),
-                    fontWeight: FontWeight.bold
-                  ),
-                ),
-                Text(
-                  '0.028195',
-                  style: TextStyle(
-                    color: Color(0xFF000000),
-                  ),
-                ),
-              ],
-            ),
-            Image.asset('assets/graphs/graph-one.png'),
-          ],
-        ),
-        Divider(
-          color: Colors.grey,
-          height: 0.0,
+        Image(
+          width: 70.0,
+          image: AssetImage(item['imgUrl']),
         ),
       ],
-    )
+    ),
   );
 }

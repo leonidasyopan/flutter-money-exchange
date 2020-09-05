@@ -10,9 +10,13 @@ class Homepage extends StatelessWidget {
         children: [
           mainMenu(),
           SizedBox(
-            height: 10.0,
+            height: 15.0,
           ),
-          wallets(),
+          walletsSection(),
+          SizedBox(
+            height: 15.0,
+          ),
+          cryptoSection(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -128,7 +132,7 @@ Widget menuOption(IconData icon, String title, int angle) {
   );
 }
 
-Widget wallets() {
+Widget walletsSection() {
   List<Map<String, dynamic>> walletItemsList = [
     {
       'iconBGcolor': Color(0xFFFA913D),
@@ -155,28 +159,14 @@ Widget wallets() {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 60.0,
-                child: FlatButton(onPressed: null, child: Text('My wallets')),
-              ),
-              SizedBox(
-                height: 60.0,
-                child:
-                    FlatButton(onPressed: null, child: Text('Empty wallets')),
-              ),
-            ],
-          ),
+          headerOfSections('My wallets', 'Empty wallets'),
           Divider(
             color: Colors.grey,
             height: 0.0,
           ),
           Column(
-            children: walletItemsList.map((item) => walletItems(item)).toList()
-            )
+              children:
+                  walletItemsList.map((item) => walletItems(item)).toList())
         ],
       ));
 }
@@ -232,6 +222,38 @@ Widget walletItems(Map<String, dynamic> item) {
       Divider(
         color: Colors.grey,
         height: 0.0,
+      ),
+    ],
+  );
+}
+
+Widget cryptoSection() {
+  return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        colors: [Color(0xFFFFFFFF), Color(0xFFFFFFFF)],
+        stops: [0.0, 0.7],
+      )),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          headerOfSections('Buy Crypto','Sell Crypto'),
+        ],
+      ));
+}
+
+Widget headerOfSections(String leftOption, String rightOption) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      SizedBox(
+        height: 60.0,
+        child: FlatButton(onPressed: null, child: Text(leftOption)),
+      ),
+      SizedBox(
+        height: 60.0,
+        child: FlatButton(onPressed: null, child: Text(rightOption)),
       ),
     ],
   );

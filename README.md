@@ -1,16 +1,42 @@
-# money_exchange
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://leonidasyopan.com/">
+    <img src="https://raw.githubusercontent.com/leonidasyopan/yopan-journal-frontend/master/src/assets/logo-leonidas-yopan-480x150.png" alt="Logo Leonidas Yopan" width="300" height="94">
+  </a>
 
-A new Flutter project.
+  <h3 align="center">Money Exchange</h3>
 
-## Getting Started
+  <p align="center">
+    Flutter project for a money exchange application.
+    <br />
+    <br />
+    More information about the developer:
+    <br />
+    <a href="https://www.linkedin.com/in/leonidasyopan/" target="_blank">LinkedIn</a>
+    ·
+    <a href="https://twitter.com/leonidasyopan" target="_blank">Twitter</a>
+    ·
+    <a href="https://www.facebook.com/leonidasyopan" target="_blank">Facebook</a>
+    ·
+    <a href="https://leonidasyopan.com/" target="_blank">Portfolio</a>
+  </p>
+</p>
 
-This project is a starting point for a Flutter application.
+# Project Information
 
-A few resources to get you started if this is your first Flutter project:
+ToDo
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<!-- LICENSE -->
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## License
+
+Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
+
+<!-- CONTACT -->
+
+## Contact
+
+Leônidas Yopán - [@leonidasyopan](https://twitter.com/leonidasyopan) - leonidasyopan@gmail.com
+
+LinkedIn: [https://www.linkedin.com/in/leonidasyopan/](https://www.linkedin.com/in/leonidasyopan/)
